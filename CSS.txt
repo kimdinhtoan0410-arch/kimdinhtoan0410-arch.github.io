@@ -1,0 +1,39 @@
+/* Navigation Styling */
+nav {
+  background-color: #444;
+  padding: 10px;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Content Styling */
+section {
+  background-color: #ddd; /* Light grey background from the image */
+  padding: 20px;
+  font-family: serif;
+}
+
+/* Footer Styling (from your Solution slide) */
+footer {
+  background-color: #444;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  font-size: 0.8em;
+}
