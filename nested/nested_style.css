@@ -1,0 +1,27 @@
+/* Slide 1: Descendant - Chọn tất cả thẻ a trong class .items */
+.items a {
+    color: green;
+    font-weight: bold;
+}
+
+/* Slide 2: Adjacent Sibling - p nằm ngay sau p */
+p + p {
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* Slide 3: Direct Child - Chỉ chọn span là con trực tiếp của div */
+.parent-div > span {
+    background-color: DodgerBlue;
+    color: white;
+}
+
+/* Slide 4: Multiple Classes */
+.apple { color: red; }
+.orange { color: orange; }
+.small { font-size: 16px; }
+
+/* Chỉ áp dụng khi có cả 2 class apple và orange */
+.apple.orange {
+    font-style: italic;
+}

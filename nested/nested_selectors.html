@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thực hành Nested Selectors</title>
+    <link rel="stylesheet" href="nested_style.css">
+</head>
+<body>
+
+    <h2>1. Descendant Selector (Slide 1)</h2>
+    <div class="items">
+        <a href="#">Item 1</a>
+        <a href="#">Item 2</a>
+        <a href="#">Item 3</a>
+        <ul>
+            <li><a href="#">Item 4 (Cháu)</a></li>
+            <li><a href="#">Item 5 (Cháu)</a></li>
+            <li><a href="#">Item 6 (Cháu)</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2>2. Adjacent Sibling (Slide 2)</h2>
+    <div>
+        <p>I'm a paragraph</p>
+        <p>I am selected! (Đứng sau p)</p>
+    </div>
+    <div>
+        <p>I'm a paragraph</p>
+        <h2>Monkey hair (Chặn giữa)</h2>
+        <p>I am NOT selected</p>
+    </div>
+
+    <hr>
+
+    <h2>3. Direct Child (Slide 3)</h2>
+    <div class="parent-div">
+        <span>Span #1, in the div.</span>
+        <span>
+            <span>Span #2, in the span that's...</span>
+        </span>
+    </div>
+    <span>Span #3, not in the div at all.</span>
+
+    <hr>
+
+    <h2>4. Multiple Classes (Slide 4)</h2>
+    <h2 class="apple orange small">Apple + Orange</h2>
+    <h2 class="apple">Apple</h2>
+    <h2 class="orange">Orange</h2>
+
+</body>
+</html>
