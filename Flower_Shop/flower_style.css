@@ -1,0 +1,174 @@
+/* Thiết lập chung cho toàn bộ trang */
+body {
+    margin: auto;
+    padding: 0px;
+    background: #CCCCCC;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12px;
+}
+
+#wrap {
+    background: #ffffff;
+    margin: auto;
+    width: 900px;
+    height: auto;
+}
+
+/* Phần Đầu trang */
+header {
+    background: url(images/header.jpg);
+    height: 181px;
+    width: 900px;
+}
+
+#logo {
+    padding: 20px 0 0 50px;
+}
+
+#menu_top {
+    margin-top: 55px;
+    margin-left: 30px;
+    background: #ffffff;
+    height: 40px;
+    opacity: 0.8;
+    border-radius: 10px 0px 0px 10px;
+}
+
+/* Menu chính */
+.level1 {
+    clear: both;
+    list-style-type: none;
+    padding-top: 12px;
+    position: relative;
+}
+
+.level1 li {
+    display: inline;
+    float: left;
+    padding: 0px 20px 0px 0px;
+    height: 27px;
+    font-weight: bold;
+}
+
+.level1 li a {
+    color: red;
+    text-decoration: none;
+}
+
+.level1 li a:hover {
+    color: green;
+}
+
+/* Menu con (Dropdown) */
+.level2 {
+    display: none;
+    position: absolute;
+    list-style-type: none;
+    padding: 0px;
+    margin-top: 11px;
+    width: 150px;
+    z-index: 100;
+}
+
+.level1 li:hover > .level2 {
+    display: block;
+}
+
+.level2 li {
+    float: none;
+    background: #eee;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Lời chào chạy ngang */
+#welcome {
+    background: #aff;
+    padding: 8px;
+    border: dotted 2px #9C0;
+    font-weight: bold;
+    clear: both;
+}
+
+/* Bố cục cột */
+#center_content {
+    background: url(images/center_bg.gif) repeat-y;
+    width: 900px;
+    overflow: hidden; /* Thay cho clear fix */
+}
+
+#left {
+    width: 500px;
+    float: left;
+}
+
+#right {
+    width: 380px;
+    float: right;
+}
+
+.title {
+    color: #B81F22;
+    font-size: 17px;
+    margin: 15px;
+    font-weight: bold;
+}
+
+/* Sản phẩm chính */
+.product {
+    border-bottom: dashed 1px #ccc;
+    margin: 10px 20px;
+    padding-bottom: 15px;
+    overflow: hidden;
+}
+
+.product .img {
+    float: left;
+}
+
+.product .description {
+    float: right;
+    width: 280px;
+    padding: 10px;
+    border: solid 1px #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+
+/* Sidebar bên phải */
+#promotion, #categories {
+    padding: 10px;
+}
+
+.product_small {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.menu_right {
+    list-style-image: url(images/left_menu_bullet.gif);
+    font-weight: bold;
+}
+
+.menu_right li {
+    padding: 8px;
+    border-bottom: dashed 1px #ccc;
+}
+
+/* Chân trang */
+#footer {
+    background: url(images/footer_bg.gif) no-repeat bottom;
+    height: 100px;
+    border-top: dashed 1px #ccc;
+    margin-top: 20px;
+}
+
+#footer .left {
+    float: left;
+    padding: 20px;
+    color: #666;
+}
+
+#footer .right {
+    float: right;
+    padding: 20px;
+}
