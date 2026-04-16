@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Lab Session 11 & 12 - JavaScript</title>
+    
+    <script language="javascript">
+        function baiTap1() {
+            // --- NỘI DUNG BÀI 1: TÍNH TỔNG ---
+            var txta = prompt("BÀI 1: Nhập số A");
+            var txtb = prompt("BÀI 1: Nhập số B");
+
+            if (txta == null || txta == "" || isNaN(txta)) {
+                alert("Số A không đúng định dạng!");
+            } else if (txtb == null || txtb == "" || isNaN(txtb)) {
+                alert("Số B không đúng định dạng!");
+            } else {
+                var result = parseFloat(txta) + parseFloat(txtb);
+                alert("Kết quả:\n" + txta + " + " + txtb + " = " + result);
+            }
+        }
+
+        function baiTap2() {
+            // --- NỘI DUNG BÀI 2: CHẴN LẺ ---
+            var txta = prompt("BÀI 2: Nhập một số nguyên bất kỳ");
+
+            if (txta == null || txta == "" || isNaN(txta)) {
+                document.body.innerHTML += "<p style='color:red'>Bạn phải nhập một số!</p>";
+            } else if (txta % 2 == 0) {
+                document.body.innerHTML += "<p style='color:green'><b>" + txta + " là số chẵn</b></p>";
+            } else {
+                document.body.innerHTML += "<p style='color:blue'><i>" + txta + " là số lẻ</i></p>";
+            }
+        }
+    </script>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 20px;">
+
+    <h1>Lab Session 11 & 12: Introduction to JavaScript</h1>
+    <hr>
+
+    <h3>Chọn bài tập để chạy:</h3>
+    <button onclick="baiTap1()" style="padding: 10px 20px; cursor: pointer;">
+        Chạy Bài 1 (Tính tổng)
+    </button>
+    
+    <button onclick="baiTap2()" style="padding: 10px 20px; cursor: pointer;">
+        Chạy Bài 2 (Kiểm tra Chẵn/Lẻ)
+    </button>
+
+    <div id="result-area" style="margin-top: 20px;">
+        </div>
+
+</body>
+</html>
