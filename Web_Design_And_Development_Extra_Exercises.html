@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <title>Web Design and Development - Extra Exercises</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0f2f5; padding: 20px; color: #333; }
+        .wrapper { max-width: 700px; margin: auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #1a73e8; font-size: 24px; text-transform: uppercase; margin-bottom: 30px; border-bottom: 2px solid #1a73e8; padding-bottom: 10px; }
+        h2 { font-size: 18px; color: #555; background: #e8f0fe; padding: 10px; border-left: 5px solid #1a73e8; margin-top: 30px; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        td { padding: 10px; vertical-align: middle; }
+        input, select { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        input[readonly] { background-color: #f9f9f9; color: #d93025; font-weight: bold; border: 1px solid #eee; }
+        .btn-container { text-align: center; margin-top: 15px; }
+        button { background-color: #1a73e8; color: white; border: none; padding: 10px 25px; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #1557b0; }
+        #multiplicationDisplay { margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 8px; line-height: 1.6; font-family: 'Courier New', Courier, monospace; text-align: center; }
+    </style>
+
+    <script language="javascript">
+        // --- BÀI 3: DATES IN MONTH (Sử dụng Switch statement) ---
+        function isLeapYear(n) {
+            return (n % 4 == 0 && n % 100 != 0) || n % 400 == 0;
+        }
+
+        function updateDates() {
+            var f = document.fDates;
+            var yearVal = f.year.value;
+            var monthVal = f.month.value;
+
+            if (yearVal === "" || isNaN(yearVal)) {
+                f.date.value = "Year must be a number";
+                f.year.focus();
+            } else {
+                switch (monthVal) {
+                    case "1": case "3": case "5": case "7": case "8": case "10": case "12":
+                        f.date.value = "31 ngày";
+                        break;
+                    case "4": case "6": case "9": case "11":
+                        f.date.value = "30 ngày";
+                        break;
+                    case "2":
+                        f.date.value = isLeapYear(parseInt(yearVal)) ? "29 ngày" : "28 ngày";
+                        break;
+                }
+            }
+        }
+
+        // --- BÀI EXTRA a & b: RECTANGLE & CIRCLE ---
+        function calculateShapes() {
+            var f = document.fShapes;
+            
+            // Tính Hình chữ nhật
+            var w = parseFloat(f.width.value);
+            var h = parseFloat(f.height.value);
+            if (!isNaN(w) && !isNaN(h)) {
+                f.rect_p.value = (2 * (w + h)).toFixed(2);
+                f.rect_a.value = (w * h).toFixed(2);
+            }
+
+            // Tính Hình tròn
+            var r = parseFloat(f.radius.value);
+            if (!isNaN(r)) {
+                const PI = 3.14;
+                f.circ_p.value = (2 * PI * r).toFixed(2);
+                f.circ_a.value = (PI * r * r).toFixed(2);
+            }
+        }
+
+        // --- BÀI 5: MULTIPLICATION TABLE (Sử dụng Loop) ---
+        function showMultiplicationTable() {
+            var n = parseInt(document.getElementById("numInput").value);
+            var display = document.getElementById("multiplicationDisplay");
+            
+            if (isNaN(n)) {
+                display.innerHTML = "<span style='color:red;'>Vui lòng nhập một số hợp lệ!</span>";
+                return;
+            }
+
+            var result = "<strong>BẢNG CỬU CHƯƠNG " + n + "</strong><br><br>";
+            for (var i = 1; i <= 10; i++) {
+                result += n + " x " + i + " = " + (n * i) + "<br>";
+            }
+            display.innerHTML = result;
+        }
+    </script>
+</head>
+<body onload="updateDates()">
+
+<div class="wrapper">
+    <h1>Lab Exercises - Web Design</h1>
+
+    <h2>3. Dates in Month (Switch Statement)</h2>
+    <form name="fDates">
+        <table>
+            <tr>
+                <td align="right" width="30%">Year:</td>
+                <td><input name="year" value="2014" onblur="updateDates()"></td>
+            </tr>
+            <tr>
+                <td align="right">Month:</td>
+                <td>
+                    <select name="month" onchange="updateDates()">
+                        <option value="1">01</option><option value="2" selected>02</option>
+                        <option value="3">03</option><option value="4">04</option>
+                        <option value="5">05</option><option value="6">06</option>
+                        <option value="7">07</option><option value="8">08</option>
+                        <option value="9">09</option><option value="10">10</option>
+                        <option value="11">11</option><option value="12">12</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">Date:</td>
+                <td><input name="date" readonly></td>
+            </tr>
+        </table>
+    </form>
+
+    <h2>Extra: Perimeter and Area (Rectangle & Circle)</h2>
+    <form name="fShapes">
+        <table>
+            <tr>
+                <td colspan="2"><strong>a. Rectangle:</strong></td>
+            </tr>
+            <tr>
+                <td align="right">Width / Height:</td>
+                <td>
+                    <input name="width" placeholder="Dài" style="width:48%;" onblur="calculateShapes()">
+                    <input name="height" placeholder="Rộng" style="width:48%;" onblur="calculateShapes()">
+                </td>
+            </tr>
+            <tr>
+                <td align="right">P / A:</td>
+                <td>
+                    <input name="rect_p" placeholder="Chu vi" style="width:48%;" readonly>
+                    <input name="rect_a" placeholder="Diện tích" style="width:48%;" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="padding-top:20px;"><strong>b. Circle (π = 3.14):</strong></td>
+            </tr>
+            <tr>
+                <td align="right">Radius:</td>
+                <td><input name="radius" placeholder="Bán kính" onblur="calculateShapes()"></td>
+            </tr>
+            <tr>
+                <td align="right">P / A:</td>
+                <td>
+                    <input name="circ_p" placeholder="Chu vi" style="width:48%;" readonly>
+                    <input name="circ_a" placeholder="Diện tích" style="width:48%;" readonly>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <h2>5. Multiplication Table (Loop Statement)</h2>
+    <div style="padding: 10px;">
+        <label>Nhập số:</label>
+        <input type="number" id="numInput" style="width: 60%; margin-left: 10px;" placeholder="Ví dụ: 5">
+        <div class="btn-container">
+            <button type="button" onclick="showMultiplicationTable()">Tạo bảng cửu chương</button>
+        </div>
+        <div id="multiplicationDisplay">Kết quả sẽ hiển thị ở đây...</div>
+    </div>
+
+</div>
+
+</body>
+</html>
